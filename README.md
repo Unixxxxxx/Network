@@ -1,112 +1,71 @@
-– Network Diagnostic Script
-🔍 Overview
-This script is designed to collect and display a variety of network-related diagnostics from a Linux system. It provides essential system networking information useful for troubleshooting, auditing, or general system checks.
+# 🧪 Network Diagnostics Bash Script
 
-📜 Script Details
-✅ What It Does
-The script performs the following checks:
+A handy shell script to **gather system network information** and perform **basic connectivity tests** for troubleshooting or audit purposes.
 
-IP Address and Interfaces
+---
 
-Uses ip a to display all network interfaces and their assigned IP addresses.
+## 🚀 Features
 
-Hostname
+This script covers everything from IP address discovery to DNS lookups and connectivity tests:
 
-Retrieves the system’s hostname using hostname.
+| 🧩 Feature | 🔍 Description |
+|-----------|----------------|
+| **IP Configuration** | View all network interfaces and their IPs |
+| **Hostname** | Display the system hostname |
+| **Default Gateway** | Show routing information |
+| **DNS Servers** | List configured DNS servers |
+| **MAC Addresses** | Display MAC addresses of interfaces |
+| **Active Connections** | Show all open TCP/UDP connections |
+| **ARP Table** | View local ARP cache |
+| **Ping Test** | Check internet connectivity (Google DNS) |
+| **Traceroute** | Track route to `google.com` |
+| **NSLookup** | Perform DNS lookup for `google.com` |
+| **Flush DNS Cache** | Clear DNS cache with `systemd-resolve` |
 
-Default Gateway
+---
 
-Displays the current routing table using ip route to identify the default gateway.
+## 🛠️ How to Use
 
-DNS Servers
+### 1. 🔽 Save the Script
 
-Uses systemd-resolve --status to show active DNS servers.
+Save the following as `network_diagnostics.sh`:
 
-MAC Addresses
+```bash
+#!/bin/bash
 
-Lists MAC addresses for all interfaces using ip link.
+echo "===== IP Address and Interfaces ====="
+ip a
 
-Active Network Connections
+echo -e "\n===== Hostname ====="
+hostname
 
-Shows active TCP/UDP connections and the processes using them with ss -tunap.
+echo -e "\n===== Default Gateway ====="
+ip route
 
-ARP Table
+echo -e "\n===== DNS Servers ====="
+systemd-resolve --status | grep 'DNS Servers' -A2
 
-Displays ARP entries using ip neigh.
+echo -e "\n===== MAC Addresses ====="
+ip link
 
-Ping Test (Google DNS)
+echo -e "\n===== Active Network Connections ====="
+ss -tunap
 
-Sends 4 ICMP packets to 8.8.8.8 (Google DNS) to test connectivity.
+echo -e "\n===== ARP Table ====="
+ip neigh
 
-Traceroute to google.com
+echo -e "\n===== Ping Test (Google DNS) ====="
+ping -c 4 8.8.8.8
 
-Displays the path packets take to reach Google using traceroute.
+echo -e "\n===== Traceroute to google.com ====="
+traceroute google.com
 
-NSLookup for google.com
+echo -e "\n===== NSLookup for google.com ====="
+nslookup google.com
 
-Performs a DNS query for google.com using nslookup.
+echo -e "\n===== Flushing DNS Cache ====="
+sudo systemd-resolve --flush-caches
+echo "DNS cache flushed."
 
-Flush DNS Cache
-
-Clears the local DNS cache using sudo systemd-resolve --flush-caches.
-
-⚙️ How to Use
-📁 Save the Script
-Save the script to a file, e.g., network_diagnostics.sh.
-
-🔐 Make It Executable
-bash
-Copy
-Edit
-chmod +x network_diagnostics.sh
-▶️ Run the Script
-bash
-Copy
-Edit
-./network_diagnostics.sh
-Note: Flushing the DNS cache requires root privileges. You may be prompted for your password.
-
-📝 Requirements
-Ensure the following utilities are installed:
-
-ip
-
-systemd-resolve
-
-ss
-
-traceroute
-
-nslookup
-
-ping
-
-Install missing packages if needed:
-
-bash
-Copy
-Edit
-sudo apt install iproute2 net-tools dnsutils traceroute -y
-📌 Output Example
-Sample outputs will be printed to the terminal, with section headers like:
-
-python-repl
-Copy
-Edit
-===== IP Address and Interfaces =====
-...
-===== Ping Test (Google DNS) =====
-...
-📦 Use Cases
-Network troubleshooting
-
-System audits
-
-Remote diagnostics
-
-Pre/post-deployment checks
-
-🛡️ Disclaimer
-This script is intended for informational and diagnostic purposes. Use with care, especially on production systems.
-
+echo -e "\n===== Done. ====="
 
