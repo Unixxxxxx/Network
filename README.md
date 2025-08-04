@@ -68,4 +68,9 @@ sudo systemd-resolve --flush-caches
 echo "DNS cache flushed."
 
 echo -e "\n===== Done. ====="
-
+3. ▶️ Run It
+bash
+Copy
+Edit
+./network_diagnostics.sh
+💡 Note: DNS cache flushing needs sudo. You may be prompted for your password.
