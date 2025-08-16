@@ -1,5 +1,9 @@
 #!/bin/bash
+echo "This sis the port things "
+ss -tuln
 
+echo "__This is the all runing ports"
+netstat -tulnp
 echo "===== IP Address and Interfaces ====="
 ip a
 
