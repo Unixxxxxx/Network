@@ -10,4 +10,4 @@ echo "Name is  $name  and Age is  $age"
 
 echo "Enter your name"
 read username
-echo "welcome, $username"
+echo "welcome, $username and age is$age"
