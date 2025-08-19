@@ -4,8 +4,8 @@ echo "This is mE"
 #name="mE"
 #echo "my $name"
 
-if [[ $name == "Bikku" ]]; then
-    echo "Welcome, Bikku!"
+if [[ $name == "mE" ]]; then
+    echo "Welcome, mE!"
 else
     echo "Who are you?"
 fi
