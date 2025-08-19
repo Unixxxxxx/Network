@@ -1,0 +1,13 @@
+#!/bin/bash 
+
+echo "This is a practice Think"
+
+
+name='mE'
+age=25
+echo "Name is  $name  and Age is  $age"
+
+
+echo "Enter your name"
+read username
+echo "welcome, $username"
