@@ -1,3 +1,4 @@
+#!/bin/bash
 # Usage: ./pingsweep.sh 192.168.1
 base="$1"; for i in {1..254}; do
   ip="$base.$i"
