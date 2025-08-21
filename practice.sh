@@ -2,6 +2,11 @@
 ip a
 echo 'ip'
 
+echo '------------------------------------------------'
+
+ip route | grep default
+
+echo '___________________________________________________'
 echo "This is a practice Think"
 
 
