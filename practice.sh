@@ -17,10 +17,12 @@ echo '-------------------------------------------------'
 
 echo '------------------------------------------------'
 traceroute google.com
-echo'************************************************'
+
+echo 'Check who can connect to mechin (Active connections 
+'
 echo "This is a practice Think"
 
-echo '-------------------------------------------------------'
+echo'-------------------------------------------------------'
 name='mE'
 age=25
 echo "Name is  $name  and Age is  $age"
