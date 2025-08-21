@@ -9,10 +9,12 @@ ip route | grep default
 echo '___________________________________________________'
 echo "This is a practice Think"
 
-
+echo '-------------------------------------------------------'
 name='mE'
 age=25
 echo "Name is  $name  and Age is  $age"
+
+echo '---------------------------------------------------'
 
 
 echo "Enter your name"
