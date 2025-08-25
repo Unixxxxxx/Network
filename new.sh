@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "This is mE"
 
-#name="mE"
-#echo "my $name"
+name="mE"
+echo "my $name"
 
 if [[ $name == "mE" ]]; then
     echo "Welcome, mE!"
