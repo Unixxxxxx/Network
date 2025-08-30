@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo'_______These are basic scripts, no external tools needed except ping, ip, ss, netstat, curl, traceroute._______________________________________'
-echo '=== IP Info ===' > Network_report.txt
+echo '=== IP Info ===' > Network_report.txtss -tun
 ip a >> Network_report.txt
 
 echo '=== Routes === ' >> Network_report.txt
