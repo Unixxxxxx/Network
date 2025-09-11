@@ -134,6 +134,5 @@ Sudhanshu Kumar
 
 📧 Email: sudhanshuroyss208@gmail.com
 
-🌐 LinkedIn
+🌐 LinkedIn : https://www.linkedin.com/in/sudhanshu-kumar-281a84204/
 
-💻 GitHub
