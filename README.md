@@ -1,76 +1,133 @@
-# 🧪 Network Diagnostics Bash Script
+# 🔐 Linux Networking & Security Bash Scripts
 
-A handy shell script to **gather system network information** and perform **basic connectivity tests** for troubleshooting or audit purposes.
-
----
-
-## 🚀 Features
-
-This script covers everything from IP address discovery to DNS lookups and connectivity tests:
-
-| 🧩 Feature | 🔍 Description |
-|-----------|----------------|
-| **IP Configuration** | View all network interfaces and their IPs |
-| **Hostname** | Display the system hostname |
-| **Default Gateway** | Show routing information |
-| **DNS Servers** | List configured DNS servers |
-| **MAC Addresses** | Display MAC addresses of interfaces |
-| **Active Connections** | Show all open TCP/UDP connections |
-| **ARP Table** | View local ARP cache |
-| **Ping Test** | Check internet connectivity (Google DNS) |
-| **Traceroute** | Track route to `google.com` |
-| **NSLookup** | Perform DNS lookup for `google.com` |
-| **Flush DNS Cache** | Clear DNS cache with `systemd-resolve` |
+This repository contains a collection of **Bash scripts** designed for practicing Linux commands, networking fundamentals, and basic system administration tasks. These scripts are useful for students, beginners, and cybersecurity enthusiasts who want to automate common checks and learn by doing.
 
 ---
 
-## 🛠️ How to Use
+## 📑 Table of Contents
+- [📂 Repository Structure](#-repository-structure)
+- [📜 Scripts Overview](#-scripts-overview)
+  - [1. Basic Commands & Conditions](#1-basic-commands--conditions)
+  - [2. Networking Information Script](#2-networking-information-script)
+  - [3. Port Monitoring Script](#3-port-monitoring-script-ss--netstat)
+  - [4. Practice & System Info Script](#4-practice--system-info-script)
+- [🚀 How to Use](#-how-to-use)
+- [⚡ Requirements](#-requirements)
+- [📚 Learning Outcomes](#-learning-outcomes)
+- [🛠️ Author](#️-author)
 
-### 1. 🔽 Save the Script
+---
 
-Save the following as `network_diagnostics.sh`:
+## 📂 Repository Structure
 
 ```bash
-#!/bin/bash
+/Network$ tree -L 2
+.
+├── Quick_ping.sh
+├── README.md
+├── network_diagnostics.sh
+├── new.sh
+├── port.sh
+├── practice.sh
+├── save.sh
+└── test.sh
 
-echo "===== IP Address and Interfaces ====="
-ip a
+0 directories, 8 files
+📜 Scripts Overview
+1. Basic Commands & Conditions
+Prints user details (whoami, pwd, date)
 
-echo -e "\n===== Hostname ====="
-hostname
+Creates directories & files
 
-echo -e "\n===== Default Gateway ====="
-ip route
+Demonstrates loops (for) and conditions (if-else)
 
-echo -e "\n===== DNS Servers ====="
-systemd-resolve --status | grep 'DNS Servers' -A2
+Example of reading user input
 
-echo -e "\n===== MAC Addresses ====="
-ip link
+📷 Screenshot:
 
-echo -e "\n===== Active Network Connections ====="
-ss -tunap
+2. Networking Information Script
+Displays listening ports (ss -tuln)
 
-echo -e "\n===== ARP Table ====="
-ip neigh
+Shows active processes & connections (netstat, ip a)
 
-echo -e "\n===== Ping Test (Google DNS) ====="
-ping -c 4 8.8.8.8
+Hostname, Default Gateway, DNS servers, MAC address
 
-echo -e "\n===== Traceroute to google.com ====="
-traceroute google.com
+ARP table and active connections
 
-echo -e "\n===== NSLookup for google.com ====="
-nslookup google.com
+Ping, Traceroute, and NSLookup tests
 
-echo -e "\n===== Flushing DNS Cache ====="
-sudo systemd-resolve --flush-caches
-echo "DNS cache flushed."
+Flush DNS cache
 
-echo -e "\n===== Done. ====="
-3. ▶️ Run It
+📷 Screenshot:
+
+3. Port Monitoring Script (ss & netstat)
+Uses ss (modern replacement of netstat)
+
+Shows TCP/UDP listening ports
+
+Displays raw socket info
+
+Counts how many ports are open
+
+Checks which process is using a port
+
+Lists active connections
+
+📷 Screenshot:
+
+4. Practice & System Info Script
+Prints IP address and default gateway
+
+Shows open ports with ss
+
+Runs traceroute to Google
+
+Simple loop for IP scanning (commented example)
+
+Reads user input for name and age
+
+Displays active connections
+
+📷 Screenshot:
+
+🚀 How to Use
+Clone this repository:
+
 bash
-Copy
-Edit
-./network_diagnostics.sh
-💡 Note: DNS cache flushing needs sudo. You may be prompted for your password.
+Copy code
+git clone https://github.com/your-username/linux-networking-scripts.git
+cd linux-networking-scripts
+Give execute permission:
+
+bash
+Copy code
+chmod +x script_name.sh
+Run the script:
+
+bash
+Copy code
+./script_name.sh
+⚡ Requirements
+Linux environment (Ubuntu/Debian/Fedora recommended)
+
+Basic understanding of Bash scripting
+
+Tools used: ss, netstat, ip, ping, traceroute, nslookup
+
+📚 Learning Outcomes
+Understand network ports and connections
+
+Practice TCP/IP fundamentals
+
+Automate basic system checks
+
+Gain hands-on skills for Linux and Cybersecurity
+
+🛠️ Author
+Sudhanshu Kumar
+
+📧 Email: sudhanshuroyss208@gmail.com
+
+🌐 LinkedIn
+
+💻 GitHub
