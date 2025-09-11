@@ -1,4 +1,10 @@
-# 🔐 Linux Networking & Security Bash Scripts
+# 🔐 Linux Networking & Security Bash Scripts  
+
+![Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux)  
+![Bash](https://img.shields.io/badge/Shell-Bash-green?logo=gnu-bash)  
+![Networking](https://img.shields.io/badge/Focus-Networking-orange?logo=gnu-social)  
+![Security](https://img.shields.io/badge/Security-Cybersecurity-red?logo=datadog)  
+![Status](https://img.shields.io/badge/Status-Active-success)  
 
 This repository contains a collection of **Bash scripts** designed for practicing Linux commands, networking fundamentals, and basic system administration tasks. These scripts are useful for students, beginners, and cybersecurity enthusiasts who want to automate common checks and learn by doing.
 
