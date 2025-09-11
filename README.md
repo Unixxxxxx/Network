@@ -132,7 +132,7 @@ Gain hands-on skills for Linux and Cybersecurity
 🛠️ Author
 Sudhanshu Kumar
 
-📧 Email: sudhanshuroyss208@gmail.com
+📧 Email: Sudhanshuroyss208@gmail.com
+🔗 LinkedIn: linkedin.com/in/alexdev
 
-🌐 LinkedIn : https://www.linkedin.com/in/sudhanshu-kumar-281a84204/
 
