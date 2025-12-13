@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+"""
+xyz — Random joke generator CLI
+
+This script fetches random jokes from public APIs (Official Joke API and icanhazdadjoke).
+Usage:
+  ./xyz                # default API
+  ./xyz --api dad      # use icanhazdadjoke
+  ./xyz --count 3      # fetch 3 jokes
+
+Requires: Python 3.x and the 'requests' package (pip install requests)
+"""
+
+import argparse
+import sys
+import time
+
+try:
+    import requests
+except Exception:
+    print("This script requires the 'requests' library. Install with: pip install requests")
+    sys.exit(1)
+
+APIS = {
+    "official": {
+        "name": "Official Joke API",
+        "url": "https://official-joke-api.appspot.com/random_joke",
+        "handler": lambda r: (r.get("setup", ""), r.get("punchline", ""))
+    },
+    "dad": {
+        "name": "icanhazdadjoke",
+        "url": "https://icanhazdadjoke.com/",
+        "headers": {"Accept": "application/json"},
+        "handler": lambda r: (r.get("joke", ""), "")
+    }
+}
+
+
+def fetch_joke(api_key):
+    api = APIS[api_key]
+    url = api["url"]
+    headers = api.get("headers", {"User-Agent": "xyz-joke-generator/1.0"})
+    try:
+        resp = requests.get(url, headers=headers, timeout=8)
+        resp.raise_for_status()
+        data = resp.json()
+        setup, punch = api["handler"](data)
+        return setup, punch
+    except requests.RequestException as e:
+        return None, f"Network error: {e}"
+    except ValueError:
+        return None, "Invalid JSON response from API."
+    except Exception as e:
+        return None, f"Unexpected error: {e}"
+
+
+def main():
+    parser = argparse.ArgumentParser(description="xyz — Random joke generator using external APIs")
+    parser.add_argument("--api", choices=APIS.keys(), default="official", help="Which API to use")
+    parser.add_argument("--count", type=int, default=1, help="How many jokes to fetch")
+    parser.add_argument("--delay", type=float, default=0.6, help="Delay (seconds) between requests")
+    args = parser.parse_args()
+
+    for i in range(args.count):
+        setup, punch = fetch_joke(args.api)
+        if setup is None:
+            # error message in punch
+            print(f"[Error] {punch}")
+        else:
+            if setup:
+                print(setup)
+            if punch:
+                time.sleep(0.3)
+                print(punch)
+        if i != args.count - 1:
+            print("-" * 40)
+            time.sleep(max(0, args.delay))
+
+
+if __name__ == "__main__":
+    main()
